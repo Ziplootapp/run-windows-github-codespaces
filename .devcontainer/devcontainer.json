@@ -1,0 +1,22 @@
+{
+  "name": "Windows 11 Cloud VM (ZipLoot)",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  "forwardPorts": [8006, 3389],
+  "portsAttributes": {
+    "8006": {
+      "label": "Windows 11 Web Desktop",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postCreateCommand": "bash run.sh"
+}
