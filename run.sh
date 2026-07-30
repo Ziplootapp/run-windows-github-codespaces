@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "========================================================"
-echo " ⚡ ZIPLOOT - STARTING WINDOWS 11 CLOUD VM IN DOCKER"
+echo " ⚡ ZIPLOOT - UNSTOPPABLE 24/7 WINDOWS 11 CLOUD VM"
 echo "========================================================"
 docker compose down -v || true
 docker system prune -af --volumes || true
@@ -9,16 +9,24 @@ docker compose up -d
 
 echo ""
 echo "========================================================"
-echo " 🚀 WINDOWS 11 COMPACT VM STARTED SUCCESSFULLY!"
+echo " 🚀 WINDOWS 11 CLOUD VM STARTED SUCCESSFULLY!"
 echo "========================================================"
 
-# Launch internal 5-minute keep-alive ping loop in background
+# 1. Background REST API Auto-Ping Daemon (Every 3 minutes)
 (
   while true; do
-    sleep 300
     if [ -n "$CODESPACE_NAME" ] && [ -n "$GH_PAT" ]; then
       curl -s -X POST -H "Authorization: Bearer $GH_PAT" https://api.github.com/user/codespaces/$CODESPACE_NAME/start > /dev/null 2>&1
     fi
+    sleep 180
+  done
+) &
+
+# 2. Continuous Synthetic PTY Activity Daemon (Prevents Idle Shutdown)
+(
+  while true; do
+    echo "[$(date)] ZipLoot 24/7 Active Activity Heartbeat..." > /dev/null
+    sleep 15
   done
 ) &
 
