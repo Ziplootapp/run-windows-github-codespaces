@@ -1,5 +1,5 @@
 {
-  "name": "Windows 11 Cloud VM (ZipLoot 4 vCPU / 16GB RAM)",
+  "name": "Windows 11 Standard (ZipLoot)",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
   "hostRequirements": {
     "cpus": 4,
@@ -8,12 +8,15 @@
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
+  "containerEnv": {
+    "VERSION": "11"
+  },
   "forwardPorts": [8006, 3389],
   "portsAttributes": {
     "8006": {
-      "label": "Windows 11 Web Desktop",
+      "label": "Windows Web Desktop",
       "onAutoForward": "openBrowser"
     }
   },
-  "postCreateCommand": "bash run.sh"
+  "postCreateCommand": "VERSION=11 bash run.sh"
 }
