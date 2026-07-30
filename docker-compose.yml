@@ -3,7 +3,7 @@ services:
     image: dockurr/windows
     container_name: windows
     environment:
-      VERSION: "tiny11"
+      VERSION: "${VERSION:-tiny11}"
       RAM_SIZE: "4G"
       CPU_CORES: "4"
       DISK_SIZE: "16G"
