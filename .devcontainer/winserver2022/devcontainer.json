@@ -1,0 +1,22 @@
+{
+  "name": "Windows Server 2022 (ZipLoot)",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "16gb"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "containerEnv": {
+    "VERSION": "2022"
+  },
+  "forwardPorts": [8006, 3389],
+  "portsAttributes": {
+    "8006": {
+      "label": "Windows Web Desktop",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postCreateCommand": "VERSION=2022 bash run.sh"
+}
