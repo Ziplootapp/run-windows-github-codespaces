@@ -3,10 +3,10 @@ services:
     image: dockurr/windows
     container_name: windows
     environment:
-      VERSION: "11"
-      RAM_SIZE: "6G"
+      VERSION: "tiny11"
+      RAM_SIZE: "4G"
       CPU_CORES: "4"
-      DISK_SIZE: "18G"
+      DISK_SIZE: "16G"
       USER: "docker"
       PASSWORD: "docker"
     devices:
