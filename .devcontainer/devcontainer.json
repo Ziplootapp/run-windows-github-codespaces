@@ -1,6 +1,10 @@
 {
-  "name": "Windows 11 Cloud VM (ZipLoot)",
+  "name": "Windows 11 Cloud VM (ZipLoot 4 vCPU / 16GB RAM)",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "16gb"
+  },
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
