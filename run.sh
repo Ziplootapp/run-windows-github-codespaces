@@ -10,11 +10,15 @@ echo ""
 echo "========================================================"
 echo " 🚀 WINDOWS 11 VM STARTED SUCCESSFULLY!"
 echo "========================================================"
-echo "📌 HOW TO ACCESS YOUR WINDOWS 11 DESKTOP:"
-echo "1. Go to the 'PORTS' tab in VS Code at the bottom."
-echo "2. Find Port 8006 (Windows 11 Web Desktop)."
-echo "3. Click the Globe icon 🌐 or open Port 8006 link in your browser!"
+echo "📌 ACCESS METHOD 1 (Web Browser Desktop - Port 8006):"
+echo "   Go to PORTS tab in VS Code and open Port 8006 in browser!"
 echo ""
-echo "⚠️ NOTE: Do NOT open Port 3389 in browser (Port 3389 is RDP binary protocol)."
-echo "   Always open Port 8006 for Web Browser Desktop GUI!"
-echo "========================================================"
+echo "📌 ACCESS METHOD 2 (Direct RDP / mstsc.exe via TCP Tunnel):"
+
+# Download bore binary if not present
+if [ ! -f ./bore ]; then
+  curl -sSL https://github.com/ekzhang/bore/releases/download/v0.5.0/bore-v0.5.0-x86_64-unknown-linux-musl.tar.gz | tar -xz
+fi
+
+echo "Starting RDP Tunnel for mstsc.exe..."
+./bore local 3389 --to bore.pub &
