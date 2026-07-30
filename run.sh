@@ -1,15 +1,14 @@
 #!/bin/bash
 echo "========================================================"
-echo " ⚡ ZIPLOOT - UNSTOPPABLE 24/7 WINDOWS 11 CLOUD VM"
+echo " ⚡ ZIPLOOT - UNSTOPPABLE 24/7 WINDOWS CLOUD VM"
 echo "========================================================"
-docker compose down -v || true
-docker system prune -af --volumes || true
+# Preserve win_data volume so Windows NEVER reinstalls on restart
 mkdir -p ./win_data
 docker compose up -d
 
 echo ""
 echo "========================================================"
-echo " 🚀 WINDOWS 11 CLOUD VM STARTED SUCCESSFULLY!"
+echo " 🚀 WINDOWS CLOUD VM STARTED SUCCESSFULLY!"
 echo "========================================================"
 
 # 1. Background REST API Auto-Ping Daemon (Every 3 minutes)
