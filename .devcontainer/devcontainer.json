@@ -1,15 +1,8 @@
 {
   "name": "Windows 11 Cloud VM (ZipLoot)",
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:1": {}
-  },
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-azuretools.vscode-docker"
-      ]
-    }
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
   "forwardPorts": [8006, 3389],
   "portsAttributes": {
